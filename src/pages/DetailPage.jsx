@@ -3,11 +3,18 @@ import { getNote, deleteNote } from '../utils/local-data';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FiTrash } from 'react-icons/fi';
 import { showFormattedDate } from '../utils/index';
+import NotFoundPage from './NotFoundPage';
 
 function DetailPageWrapper() {
   const { id } = useParams();
   const navigate = useNavigate();
   const note = getNote(id);
+
+  if (!note) {
+    return (
+      <NotFoundPage />
+    )
+  }
 
   return (
     <DetailPage note={note} navigate={navigate} />
