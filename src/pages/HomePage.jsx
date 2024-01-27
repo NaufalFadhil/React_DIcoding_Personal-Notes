@@ -4,6 +4,7 @@ import { deleteNote, getAllNotes } from '../utils/local-data';
 import SearchBar from '../components/SearchBar';
 import { useSearchParams, Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
+import NoteListEmpty from '../components/NoteListEmpty';
 
 function HomePageWrapper() {
   const [searchParams, setSearchParams] =  useSearchParams();
@@ -64,7 +65,10 @@ class HomePage extends React.Component {
       <section>
         <h2>Catatan Aktif</h2>
         <SearchBar keyword={this.state.keyword} keywordChange={this.onKeywordChangeHandler} />
-        <NoteList notes={notes} onDelete={this.onDeleteHandler} />
+        {( notes == 0 
+          ? <NoteListEmpty />
+          : <NoteList notes={notes} onDelete={this.onDeleteHandler} />
+        )}
         <div className='add-new-page'>
           <Link to='/notes/new'>
             <button className='action add-new-page__action'><FiPlus /></button>
