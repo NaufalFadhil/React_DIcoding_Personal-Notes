@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 function AddPage() {
   const navigate = useNavigate();
-  function onAddNoteHandler({ name, tag }) {
-    addNote({ name, tag });
+  function onAddNoteHandler({ title, body }) {
+    addNote({ title, body });
     navigate('/');
   }
 
