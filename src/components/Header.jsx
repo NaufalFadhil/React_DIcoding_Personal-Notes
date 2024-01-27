@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header () {
   return (
     <header>
-    <h1>Personal Notes</h1>
+      <h1><Link to='/'>Personal Notes</Link></h1>
       <div className='navigation'>
         <ul>
-          <li>Arsip</li>
+        <li><Link to="/archives">Arsip</Link></li>
         </ul>
       </div>
     </header>
