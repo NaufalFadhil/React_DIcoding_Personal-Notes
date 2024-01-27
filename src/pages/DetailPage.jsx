@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FiTrash } from 'react-icons/fi';
 import { showFormattedDate } from '../utils/index';
 import NotFoundPage from './NotFoundPage';
+import PropTypes from 'prop-types';
 
 function DetailPageWrapper() {
   const { id } = useParams();
@@ -57,6 +58,11 @@ class DetailPage extends React.Component {
       </section>
     )
   }
+}
+
+DetailPage.propTypes = {
+  note: PropTypes.object.isRequired,
+  navigate: PropTypes.func.isRequired,
 }
 
 export default DetailPageWrapper;

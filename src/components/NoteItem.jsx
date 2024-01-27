@@ -2,6 +2,7 @@
 import React from 'react'
 import { showFormattedDate } from '../utils';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class NoteItem extends React.Component{
   constructor(props) {
@@ -31,6 +32,13 @@ class NoteItem extends React.Component{
       </div>
     )
   }
+}
+
+NoteItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
 }
 
 export default NoteItem;

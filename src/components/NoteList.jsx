@@ -1,8 +1,9 @@
 
 import React from 'react'
 import NoteItem from './NoteItem';
+import PropTypes from 'prop-types';
 
-function NoteList({ notes, deleteNote }) {
+function NoteList({ notes }) {
   return (
     <div className='notes-list'>
       {
@@ -11,13 +12,16 @@ function NoteList({ notes, deleteNote }) {
             key={note.id}
             title={note.title}
             content={note.content}
-            onDelete={deleteNote}
             {...note}
           />
         ))
       }
     </div>
   )
+}
+
+NoteList.propTypes = {
+  notes: PropTypes.array.isRequired,
 }
 
 export default NoteList;

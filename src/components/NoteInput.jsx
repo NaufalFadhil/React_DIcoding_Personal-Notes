@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { FiCheck } from "react-icons/fi";
+import PropTypes from 'prop-types';
 
 class NoteInput extends React.Component {
   constructor(props) {
@@ -42,6 +43,10 @@ class NoteInput extends React.Component {
       </div>
     )
   }
+}
+
+NoteInput.propTypes = {
+  addNote: PropTypes.func.isRequired,
 }
 
 export default NoteInput;
