@@ -5,8 +5,37 @@ import HomePage from '../pages/HomePage';
 import AddPage from '../pages/AddPage';
 import DetailPage from '../pages/DetailPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import LoginPage from '../pages/LoginPage';
+import { getUserLogged, putAccessToken } from '../utils/network-data';
+import RegisterPage from '../pages/RegisterPage';
 
 function App() {
+  const [authedUser, setAuthedUser] = React.useState(null);
+  const [initializing, setInitializing] = React.useState(true);
+
+  async function onLoginSuccess({ accessToken}) {
+    putAccessToken(accessToken);
+    const { data } = await getUserLogged();
+
+    console.log(data);
+
+    setAuthedUser(data);
+  }
+
+  if (authedUser === null) {
+    return (
+      <div className="contact-app">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/*" element={<LoginPage loginSuccess={onLoginSuccess} />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </main>
+      </div>
+    )
+  }
+  
   return (
     <div className="contact-app">
       <Header />
