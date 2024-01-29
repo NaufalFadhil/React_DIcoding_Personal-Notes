@@ -13,43 +13,44 @@ function App() {
   const [authedUser, setAuthedUser] = React.useState(null);
   const [initializing, setInitializing] = React.useState(true);
 
+  React.useEffect(() => {
+    getUserLogged().then(({ data }) => {
+      setAuthedUser(data);
+      setInitializing(false);
+    });
+  }, []);
+
   async function onLoginSuccess({ accessToken}) {
     putAccessToken(accessToken);
     const { data } = await getUserLogged();
 
-    console.log(data);
-
     setAuthedUser(data);
   }
 
-  if (authedUser === null) {
-    return (
-      <div className="contact-app">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/*" element={<LoginPage loginSuccess={onLoginSuccess} />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Routes>
-        </main>
-      </div>
-    )
+  if (initializing) {
+    return null;
   }
-  
+
   return (
     <div className="contact-app">
       <Header />
       <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/notes/new" element={<AddPage />} />
-          <Route path="/notes/:id" element={<DetailPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        {(authedUser === null) ? (
+          <Routes>
+            <Route path="/*" element={<LoginPage loginSuccess={onLoginSuccess} />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/notes/new" element={<AddPage />} />
+            <Route path="/notes/:id" element={<DetailPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        )}
       </main>
     </div>
   );
 }
-
 
 export default App;
