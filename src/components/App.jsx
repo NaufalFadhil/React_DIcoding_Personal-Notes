@@ -19,6 +19,7 @@ function App() {
     getUserLogged().then(({ data }) => {
       setAuthedUser(data);
       setInitializing(false);
+      setTheme(localStorage.getItem('theme') || 'dark');
     });
   }, []);
 
@@ -31,7 +32,9 @@ function App() {
 
   const toggleTheme = () => {
     setTheme((prevTheme) => {
-      return prevTheme === 'light' ? 'dark' : 'light';
+      const tempTheme = prevTheme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', tempTheme);
+      return theme === 'light' ? 'dark' : 'light';
     });
   };
 
