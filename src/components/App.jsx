@@ -30,6 +30,12 @@ function App() {
     setAuthedUser(data);
   }
 
+  async function onLogout() {
+    setAuthedUser(null);
+
+    putAccessToken(null);
+  }
+
   const toggleTheme = () => {
     setTheme((prevTheme) => {
       const tempTheme = prevTheme === 'light' ? 'dark' : 'light';
@@ -52,7 +58,7 @@ function App() {
   return (
     <ThemeContext.Provider value={contextValue}>
       <div className="app-container" data-theme={theme}>
-        <Header />
+        <Header logout={onLogout} />
         <main>
           {(authedUser === null) ? (
             <Routes>

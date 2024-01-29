@@ -2,8 +2,9 @@ import React from 'react'
 import NoteInput from './NoteInput'
 import NoteList from './NoteList'
 import SearchBar from './SearchBar';
+import PropTypes from 'prop-types';
 
-function Main({ notes, addNote, deleteNote }) {
+function Main({ notes, deleteNote }) {
   return (
     <main>
       <h2>Catatan Aktif</h2>
@@ -17,6 +18,11 @@ function Main({ notes, addNote, deleteNote }) {
       }
     </main>
   )
+}
+
+Main.propTypes = {
+  notes: PropTypes.array.isRequired,
+  deleteNote: PropTypes.func.isRequired,
 }
 
 export default Main;
