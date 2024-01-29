@@ -60,8 +60,8 @@ function HomePage() {
   )
 }
 
-HomePage.propTypes = {
-  onKeywordChangeHandler: PropTypes.func.isRequired,
-};
+// HomePage.propTypes = {
+//   onKeywordChangeHandler: PropTypes.func.isRequired,
+// };
 
 export default HomePage;
