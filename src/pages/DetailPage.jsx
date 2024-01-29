@@ -28,8 +28,8 @@ class DetailPage extends React.Component {
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
   }
 
-  onDeleteHandler(id) {
-    deleteNote(id);
+  async onDeleteHandler(id) {
+    await deleteNote(id);
 
     this.props.navigate('/');
   }

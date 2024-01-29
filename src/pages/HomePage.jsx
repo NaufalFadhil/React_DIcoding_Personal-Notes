@@ -15,14 +15,10 @@ function HomePage() {
   });
 
   React.useEffect(() => {
-    getActiveNotes().then(({ data}) => {
+    getActiveNotes().then(({ data }) => {
       setNotes(data);
     })
-  }, [])
-
-  function changeSearchParams(keyword) {
-    setSearchParams({ keyword });
-  }
+  }, []);
 
   async function onDeleteHandler(id) {
     await deleteNote(id);
@@ -34,7 +30,6 @@ function HomePage() {
   function onKeywordChangeHandler(keyword) {
     setKeyword(keyword);
     setSearchParams({ keyword });
-    // this.props.keywordChange(keyword);
   }
 
   const filteredNotes = notes.filter((note) => {
