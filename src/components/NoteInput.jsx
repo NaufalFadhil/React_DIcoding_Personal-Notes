@@ -26,10 +26,7 @@ class NoteInput extends React.Component {
 
   onSubmitHandler(e) {
     e.preventDefault();
-    this.props.addNote({
-      title: this.state.title,
-      body: this.state.body,
-    })
+    this.props.addNote(this.state);
   }
 
   render () {
