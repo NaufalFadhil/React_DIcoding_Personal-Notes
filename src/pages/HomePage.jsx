@@ -5,7 +5,6 @@ import SearchBar from '../components/SearchBar';
 import { useSearchParams, Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 import NoteListEmpty from '../components/NoteListEmpty';
-import PropTypes from 'prop-types';
 
 function HomePage() {
   const [searchParams, setSearchParams] =  useSearchParams();
@@ -54,9 +53,5 @@ function HomePage() {
     </section>
   )
 }
-
-// HomePage.propTypes = {
-//   onKeywordChangeHandler: PropTypes.func.isRequired,
-// };
 
 export default HomePage;
