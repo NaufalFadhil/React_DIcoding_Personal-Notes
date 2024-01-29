@@ -2,6 +2,7 @@ import React from 'react'
 import { FiLogOut, FiMoon, FiSun } from 'react-icons/fi';
 import { Link } from 'react-router-dom'
 import ThemeContext from '../context/ThemeContext';
+import PropTypes from 'prop-types';
 
 function Header ({ logout }) {
   const { theme, toggleTheme } = React.useContext(ThemeContext);
@@ -17,6 +18,10 @@ function Header ({ logout }) {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  logout: PropTypes.func.isRequired,
 }
 
 export default Header

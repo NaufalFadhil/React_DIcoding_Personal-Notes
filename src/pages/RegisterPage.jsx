@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import RegisterInput from '../components/RegisterInput';
 import { register } from '../utils/network-data';
+import PropTypes from 'prop-types';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -21,6 +22,10 @@ function RegisterPage() {
       <p>Kembali ke <Link to="/">Masuk</Link></p>
     </section>
   )
+}
+
+RegisterPage.propTypes = {
+  onRegisterHandler: PropTypes.func,
 }
 
 export default RegisterPage;

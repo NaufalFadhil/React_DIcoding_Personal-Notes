@@ -44,6 +44,9 @@ class NoteInput extends React.Component {
 
 NoteInput.propTypes = {
   addNote: PropTypes.func.isRequired,
+  onSubmitHandler: PropTypes.func,
+  onTitleChangeHandler: PropTypes.func,
+  onBodyChangeHandler: PropTypes.func,
 }
 
 export default NoteInput;

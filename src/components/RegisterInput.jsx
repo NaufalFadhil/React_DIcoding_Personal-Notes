@@ -43,6 +43,10 @@ function RegisterInput() {
 
 RegisterInput.propTypes = {
   register: PropTypes.func.isRequired,
+  onSubmitHandler: PropTypes.func,
+  onNameChangeHandler: PropTypes.func,
+  onEmailChangeHandler: PropTypes.func,
+  onPasswordChangeHandler: PropTypes.func,
 }
 
 export default RegisterInput;

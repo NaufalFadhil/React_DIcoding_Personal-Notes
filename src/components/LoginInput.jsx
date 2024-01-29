@@ -30,6 +30,9 @@ function LoginInput({ login }) {
 
 LoginInput.propTypes = {
   login: PropTypes.func.isRequired,
+  onSubmitHandler: PropTypes.func,
+  onEmailChangeHandler: PropTypes.func,
+  onPasswordChangeHandler: PropTypes.func,
 }
 
 export default LoginInput;
